@@ -166,27 +166,31 @@ section {
   display: flex;
   position: relative;
 }
+@media screen and (max-width: 47.5rem) {
+  #calculateWrap {
+    display: block;
+    position: relative;
+  }
+}
 
 #calculateWrap .moneyChanges {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   width: 100%;
   height: 100%;
   padding: 3rem;
   border: 1rem solid #F78E1E;
-  margin: 0 .5rem 0 0;
+  margin: 0 1.5rem 0 0;
   background-color: #fff;
 }
 
 #calculateWrap .moneyChanges p {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 400;
   color: #F78E1E;
 }
 
 #calculateWrap .moneyChanges p span {
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 700;
   color: #000;
 }
@@ -209,12 +213,35 @@ section {
 /* 자판기 하단 구매한 제품 리스트 노출영역 */
 
 #buyList {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   width: 100%;
   height: 100%;
   padding: 3rem;
   border: 1rem solid #F78E1E;
   background-color: #fff;
+}
+
+#buyList .txt {
+  display: block;
+  position: inherit;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  padding: 0 0 2rem 0;
+}
+
+#buyList .listWrap {
+  border-bottom: 1px solid #e9e9e9;
+  border-top: 1px solid #e9e9e9;
+}
+
+#buyList .listWrap .infoList {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.8rem;
+  margin: 1.5rem;
+}
+
+#buyList .listWrap .infoList p:nth-child(2) {
+  font-weight: 700;
 }
