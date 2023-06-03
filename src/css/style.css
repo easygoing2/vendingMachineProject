@@ -236,10 +236,17 @@ section {
   display: block;
   width: 100%;
   height: 30rem;
-  padding: 3rem;
   border: 1rem solid #F78E1E;
   background-color: #fff;
   margin: 0 2rem 0 0;
+}
+
+.output .imgcoffee {
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+  background-position: center;
 }
 
 .output #buyList {
