@@ -1,3 +1,4 @@
+// 제품
 const products = [
   { name: "Ice 아메리카노", price: 1500, url: "./src/img/imgCoffee01.png" },
   { name: "Hot 아메리카노", price: 1500, url: "./src/img/imgCoffee02.png"  },
@@ -7,6 +8,7 @@ const products = [
   { name: "돌체라떼", price: 2200, url: "./src/img/imgCoffee06.png"  }
 ];
 
+// 안내 메세지
 const infoMsgs = [
   { massage: "금액을 투입해 주세요."},
   { massage: "금액을 더 넣어주세요."},
@@ -31,30 +33,19 @@ for (let i = 0; i < products.length; i++) {
   </div>`  
 };
 
+
 // [반복문] 상태메세지 뿌려줌
 stateMsg.innerHTML = "";  // 메세지 영역 초기화
 
-for (let i = 0; i < )
-
-
-// 상품 클릭 Event. 
-function choiceProductBtn() {
-  if (productInsertPrice.innerHTML == "0") {  // 투입금액이 0원이면 안내 메세지 노출
-    
-  } 
-  else if (productInsertPrice.innerHTML !== "0") {  // 투입금액이 0원이면 안내 메세지 노출
-
-  } 
-  // 투입 금액이 상품가격과 일치하면 구매하기 버튼 활성화 & 메세지 수정.
-  else if (productInsertPrice == productChiocePrice) {
-    alert("투입금액과 상품 가격이 일치합니다.");
-  }
+for (let i = 0; i < infoMsgs.length; i++) {
+  let infoMsg = infoMsgs[i];
+  stateMsg.innerHTML +=
+  `<p>` + infoMsg.massage + `</p>`
 };
 
 
 // 투입금액 영역 초기화 
 let sum = 0;
-
 // 투입 금액 버튼 클릭 
 function insertMoney(element) {
   if (element) {
@@ -69,15 +60,28 @@ function insertMoney(element) {
   }
 };
 
+
 // 투입금액 더하기 연산
 function calcMoney(element) {
+  //parseInt를 안하면 값이 더하기가 안되고 옆에 붙여넣기가 됨
   sum+= parseInt(element.value);
 }
 
 
-//parseInt를 안하면 값이 더하기가 안되고 옆에 붙여넣기가 됨
-//this는 이 버튼을 클릭했을 때 참조값
-//function()에 들어갈 변수이름은 아무거나
+// 상품 클릭 Event. 
+function choiceProductBtn() {
+  if (productInsertPrice.innerHTML == "0") {
+    // 투입금액이 0원이면 안내 메세지 노출
+  } 
+  else if (productInsertPrice.innerHTML !== "0") {
+    // 투입금액이 0원이면 안내 메세지 노출
+  } 
+  else if (productInsertPrice == productChiocePrice) {
+    alert("투입금액과 상품 가격이 일치합니다.");
+    // 투입 금액이 상품가격과 일치하면 구매하기 버튼 활성화 & 메세지 수정.
+  }
+};
+
 
 // 투입 금액 초기화 버튼
 function resetMoney() {
