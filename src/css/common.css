@@ -449,3 +449,7 @@ input::-webkit-inner-spin-button {
   padding-top: 2 !important;
 }
 
+.disabledButton {
+  pointer-events: none;
+  opacity: 0.4;
+}

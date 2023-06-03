@@ -23,40 +23,26 @@
 
       <div id="calculateWrap" class="box-round">
         <div class="moneyChanges box-round">
-          <div>
-            <img id="productChioceImg" src="./src/img/imgCoffee01.png" alt="상품이미지">
-          </div>
-          <div>
-            <p>∙ 선택상품 : <span id="productChioceName"></span></p>
-            <p>∙ 상품가격 : <span id="productChiocePrice">0</span>원</p>
-            <p>∙ 투입금액 : <span id="productInsertPrice">0</span>원</p>
-          </div>
+          <p>투입금액 : <span id="productInsertPrice">0</span>원</p>
         </div>
 
         <div id="infoTxt" class="infoTxtWrap box-round">
-          금액을 투입해 주세요.
-          <!--
-          금액을 더 넣어주세요.<br>
-          상품이 준비되었습니다.<br>
-          -->
+          <p>금액을 투입해 주세요.</p>
+          <p>금액을 더 넣어주세요.</p>
+          <p>상품이 준비되었습니다.</p>
+          <p>금액을 투입해 주세요.</p>
         </div>
 
-        <button disabled type="button" class="btn--purchase">구매하기</button>
-        
+        <div id="priceButtons" class="box-round">
+          <div class="btnWrap">
+            <button type="button" class="btn--cashes" value="1000" onclick="insertMoney(this)">1,000원</button>
+            <button type="button" class="btn--cashes" value="500" onclick="insertMoney(this)">500원</button>
+            <button type="button" class="btn--cashes" value="100" onclick="insertMoney(this)">100원</button>
+            <button type="button" class="btn--cashes" value="0" onclick="resetMoney()">초기화</button>
+          </div>
+        </div>
       </div>
 
-    </section>
-
-    <section id="priceButtons" class="box-round">
-      <div class="currentCashed">
-        <p>금액을 먼저 투입하시고 제품을 클릭해 주세요.</p>
-      </div>
-      <div class="btnWrap">
-        <button type="button" class="btn--cashes" value="1000" onclick="calc(this)">1,000원</button>
-        <button type="button" class="btn--cashes" value="500" onclick="calc(this)">500원</button>
-        <button type="button" class="btn--cashes" value="100" onclick="calc(this)">100원</button>
-        <button type="button" class="btn--cashes" value="0" onclick="reset()">초기화</button>
-      </div>
     </section>
 
     <!-- 자판기 하단 구매한 제품 리스트 노출영역 -->
