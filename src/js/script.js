@@ -5,7 +5,9 @@ const products = [
   { name: "카페라떼", price: 2000, url: "./src/img/imgCoffee03.png"  },
   { name: "카라멜 마끼아또", price: 2000, url: "./src/img/imgCoffee04.png"  },
   { name: "카페모카", price: 2500, url: "./src/img/imgCoffee05.png"  },
-  { name: "돌체라떼", price: 2200, url: "./src/img/imgCoffee06.png"  }
+  { name: "아이스티", price: 3500, url: "./src/img/imgCoffee06.png"  },
+  { name: "그린티라떼", price: 4000, url: "./src/img/imgCoffee07.png"  },
+  { name: "돌체라떼", price: 2200, url: "./src/img/imgCoffee08.png"  }
 ];
 
 // 안내 메세지
