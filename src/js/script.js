@@ -7,17 +7,23 @@ const products = [
   { name: "돌체라떼", price: 2200, url: "./src/img/imgCoffee06.png"  }
 ];
 
+const infoMsgs = [
+  { massage: "금액을 투입해 주세요."},
+  { massage: "금액을 더 넣어주세요."},
+  { massage: "거스름돈은 0원입니다."},
+  { massage: "제품을 수령해주세요."}
+];
 
-// 상품 뿌려줌
-let productWraps = document.querySelector('.productWrap');
-productWraps.innerHTML = "";
+
+// [반복문] 상품 뿌려줌
+productWrap.innerHTML = ""; // 상품 영역 초기화
 
 for (let i = 0; i < products.length; i++) {
   let product = products[i];
   console.log("제품명 : ", product.name);
   console.log("제품가격 : ", product.price);
   console.log("제품이미지 : ", product.url);
-  productWraps.innerHTML +=
+  productWrap.innerHTML +=
   `<div class="product btn--product disabledButton" onclick="choiceProductBtn(this)">
   <img class="productImg" src="` + product.url + `" alt="상품이미지">
   <p class="productName">` + product.name + `</p>
@@ -25,7 +31,10 @@ for (let i = 0; i < products.length; i++) {
   </div>`  
 };
 
-// 상태메세지 뿌려줌
+// [반복문] 상태메세지 뿌려줌
+stateMsg.innerHTML = "";  // 메세지 영역 초기화
+
+for (let i = 0; i < )
 
 
 // 상품 클릭 Event. 
@@ -41,6 +50,7 @@ function choiceProductBtn() {
     alert("투입금액과 상품 가격이 일치합니다.");
   }
 };
+
 
 // 투입금액 영역 초기화 
 let sum = 0;
