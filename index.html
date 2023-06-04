@@ -23,19 +23,19 @@
 
       <div id="calculateWrap" class="box-round">
         <div class="moneyChanges box-round">
-          <p>투입금액 : <span id="productInsertPrice">0</span>원</p>
+          <p>투입금액 : <span id="productInsertPrice"></span>원</p>
         </div>
 
-        <div id="stateMsg" class="infoTxtWrap box-round">
+        <div id="statusMsg" class="infoTxtWrap box-round">
           <!-- 안내 메세지 노출영역 -->
         </div>
 
         <div id="priceButtons" class="box-round">
           <div class="btnWrap">
-            <button type="button" class="btn--cashes" value="1000" onclick="insertMoney(this)">1,000원</button>
-            <button type="button" class="btn--cashes" value="500" onclick="insertMoney(this)">500원</button>
-            <button type="button" class="btn--cashes" value="100" onclick="insertMoney(this)">100원</button>
-            <button type="button" class="btn--cashes" value="0" onclick="resetMoney()">초기화</button>
+            <button type="button" class="btn--cashes" value="1000" onclick="insertMoney(1000)">1,000원</button>
+            <button type="button" class="btn--cashes" value="500" onclick="insertMoney(500)">500원</button>
+            <button type="button" class="btn--cashes" value="100" onclick="insertMoney(100)">100원</button>
+            <button type="button" class="btn--cashes" value="0" onclick="insertMoney(-UserPrice.total)">초기화</button>
           </div>
         </div>
       </div>
@@ -46,7 +46,7 @@
     <div class="output">
       <div class="purchaseProduct box-round">
         <!-- 구매한 제품 이미지 노출영역 -->
-        <div style="background-image: url('./src/img/imgCoffee01-1.png');" class="imgcoffee"></div>
+        <div style="background-image: url('./src/img/imgCoffee01-1.png');" class="inside"></div>
       </div>
       <div id="buyList" class="box-round">
         <div class="txt">내가 구매한 상품 리스트</div>
