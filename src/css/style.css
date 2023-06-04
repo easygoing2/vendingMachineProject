@@ -262,7 +262,7 @@ section {
 .output #buyList {
   display: block;
   width: 100%;
-  height: 30rem;
+  height: 33rem;
   padding: 3rem;
   border: 1rem solid #F78E1E;
   background-color: #fff;
@@ -271,6 +271,8 @@ section {
 .output #buyList .txt {
   display: block;
   position: inherit;
+  font-size: 3rem;
+  font-weight: 700;
   text-align: center;
   padding: 0 0 2rem 0;
 }
