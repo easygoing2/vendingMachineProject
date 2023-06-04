@@ -76,7 +76,9 @@ function choiceProductBtn() {
     // 투입금액이 0원이면 안내 메세지 노출
   } 
   else if (productInsertPrice.innerHTML !== "0") {
-    // 투입금액이 0원이면 안내 메세지 노출
+    // 투입금액이 있다면 안내 메세지 노출
+    let purchaseProduct = document.querySelector('.purchaseProduct > div');
+    purchaseProduct.classList.replace("inside", "comeOut");
   } 
   else if (productInsertPrice == productChiocePrice) {
     alert("투입금액과 상품 가격이 일치합니다.");
