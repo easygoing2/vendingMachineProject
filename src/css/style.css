@@ -298,3 +298,7 @@ section {
   justify-content: center;
   align-items: center;
 }
+
+#statusMsg .on {
+  border: 1px solid red;
+}
