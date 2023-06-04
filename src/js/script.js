@@ -23,6 +23,7 @@ const products_sample = {
   { name: "아이스티", price: 3500, url: "./src/img/imgCoffee06.png"  },
   { name: "말차라떼", price: 4000, url: "./src/img/imgCoffee07.png"  },
   { name: "아포카토", price: 2200, url: "./src/img/imgCoffee08.png"  }
+]};
 
 // 안내 메세지
 const infoMsgs = [
