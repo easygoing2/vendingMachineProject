@@ -67,14 +67,6 @@ function validProduct() { // [반복문] 뿌려진 상품들과 투입금액을 
   }
 };
 
-// function printStatusMsg() { // [반복문] 상태메세지 뿌려줌
-//   statusMsg.innerHTML = "";  // 메세지 영역
-//   for (let i = 0; i < infoMsgs.length; i++) {
-//     statusMsg.innerHTML +=
-//     `<p class="disabledButton">` + infoMsgs[i].massage + `</p>`
-//   };
-// };
-
 function selectStatusMsg(x) { // [반복문] 상태메세지 p태그에 on클래스를 추가, 삭제하는 함수.
   let list = statusMsg.querySelectorAll("p"); // 상태메세지의 p태그 내용들 list변수에 담기.
   for (let i = 0; i < list.length; i++) { // 상태메세지들 loop 돌려서
@@ -118,6 +110,11 @@ function choiceProductBtn(o, i) {
   validProduct();
   printTotalPrice();
 };
+
+// 상품 출력.
+function outputProduct() {
+  
+}
 
 // 순차적으로 자동실행.
 window.onload = function () {
