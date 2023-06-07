@@ -2,23 +2,15 @@
 const products = {
   version: 1.1,
   data: [
-    { name: "Ice 아메리카노", price: 1500, url: "./src/img/imgCoffee01.png" },
-    { name: "Hot 아메리카노", price: 1500, url: "./src/img/imgCoffee02.png"  },
-    { name: "카페라떼", price: 2000, url: "./src/img/imgCoffee03.png"  },
-    { name: "카라멜 마끼아또", price: 2000, url: "./src/img/imgCoffee04.png"  },
-    { name: "카페모카", price: 2500, url: "./src/img/imgCoffee05.png"  },
-    { name: "아이스티", price: 3500, url: "./src/img/imgCoffee06.png"  },
-    { name: "말차라떼", price: 4000, url: "./src/img/imgCoffee07.png"  },
-    { name: "아포카토", price: 2200, url: "./src/img/imgCoffee08.png"  }
+    { name: "Ice 아메리카노", price: 1500, url: "./src/img/imgCoffee01.png",url2: "./src/img/imgCoffee01-1.png" },
+    { name: "Hot 아메리카노", price: 1500, url: "./src/img/imgCoffee02.png",url2: "./src/img/imgCoffee02-1.png"  },
+    { name: "카페라떼", price: 2000, url: "./src/img/imgCoffee03.png",url2: "./src/img/imgCoffee03-1.png"  },
+    { name: "카라멜 마끼아또", price: 2000, url: "./src/img/imgCoffee04.png",url2: "./src/img/imgCoffee04-1.png"  },
+    { name: "카페모카", price: 2500, url: "./src/img/imgCoffee05.png",url2: "./src/img/imgCoffee05-1.png"  },
+    { name: "아이스티", price: 3500, url: "./src/img/imgCoffee06.png",url2: "./src/img/imgCoffee06-1.png"  },
+    { name: "말차라떼", price: 4000, url: "./src/img/imgCoffee07.png",url2: "./src/img/imgCoffee07-1.png"  },
+    { name: "아포카토", price: 2200, url: "./src/img/imgCoffee08.png",url2: "./src/img/imgCoffee08-1.png"  }
   ]};
-
-// 안내 메세지
-// const infoMsgs = [
-//   { massage: "금액을 투입해 주세요."},
-//   { massage: "금액을 더 넣어주세요."},
-//   { massage: "거스름돈은 0원입니다."},
-//   { massage: "제품을 수령해주세요."}
-// ];
 
 const CashType = [
   50000, 10000, 5000, 1000, 500, 100
@@ -102,23 +94,29 @@ function calcMoney(element) {
   sum+= parseInt(element.value);
 };
 
-// 상품 클릭 Event. 
+// 상품 클릭 Event
 function choiceProductBtn(o, i) {
-  console.log("products[i].price : ", products.data[i].price); // 클릭한 상품의 가격
-  console.log("o : ", o); // 클릭한 상품 <div ...
+  console.log("클릭한 상품의 가격 products[i].price : ", products.data[i].price); // 클릭한 상품의 가격
+  console.log("클릭한 상품의 가격 products[i].price : ", products.data[i].url2); // 클릭한 상품의 가격
+  console.log("클릭한 상품 o : ", o); // 클릭한 상품 <div ...
   UserPrice.inputCash(-products.data[i].price);  // inputCash 계산함수에 인자값으로 상단의 클릭한 상품가격이 마이너스값으로 들어감. 투입된 가격에 상품가격을 뺀 금액이 아래 함수들을 거치면서 금액(원)영역에 뿌려짐.
   validProduct();
   printTotalPrice();
-  outputProduct();
+  outputProduct(i);
 };
 
-// 상품 출력.
-function outputProduct() {
-  let purchaseProduct = document.querySelector('.purchaseProduct > div');
-  purchaseProduct.classList.replace("inside", "comeOut");
+// 상품 출력
+function outputProduct(i) {
+  let purchaseProduct = document.querySelector('.purchaseProduct');
+  purchaseProduct.innerHTML = `
+  <div style="background-image: url('` + products.data[i].url2 + `');" class="inside"></div>
+  `
+  let purchaseProductIn = document.querySelector('.purchaseProduct > div');
+  purchaseProductIn.classList.replace("inside", "comeOut");
+  console.log(purchaseProductIn);
 }
 
-// 순차적으로 자동실행.
+// 순차적으로 자동실행
 window.onload = function () {
   printProduct();
   // printStatusMsg();
