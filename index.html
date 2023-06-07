@@ -14,73 +14,69 @@
 
 <body>
   <div class="container">
-    <h1 class="font-bold">미스터브리즈커피 Coffee 자판기</h1>
-    <section id="header">
+    <h1 class="font-bold">미스터브리즈커피 Coffee 자판기 ver.1.1</h1>
+    <!-- 금액 투입 -->
+    <div id="priceButtons" class="box-round">
+      <div class="btnWrap">
+        <button type="button" class="btn--cashes" value="1000" onclick="insertMoney(1000)">1,000원</button>
+        <button type="button" class="btn--cashes" value="500" onclick="insertMoney(500)">500원</button>
+        <button type="button" class="btn--cashes" value="100" onclick="insertMoney(100)">100원</button>
+        <button type="button" class="btn--cashes" value="0" onclick="insertMoney(-UserPrice.total)">초기화</button>
+      </div>
+    </div>
 
+    <section id="header">
       <div id="productWrap" class="box-round">
         <!-- 자판기 상단 제품 노출영역 -->
       </div>
-
+      <div class="gap"></div>
       <div id="calculateWrap" class="box-round">
         <div class="moneyChanges box-round">
           <p>금액(원) : <span id="productInsertPrice"></span>원</p>
         </div>
 
-        <div id="statusMsg" class="infoTxtWrap box-round">
-          <!-- 안내 메세지 노출영역 -->
+        <div class="purchaseProduct box-round">
+          <!-- 구매한 제품 이미지 노출영역 -->
+          <div style="background-image: url('./src/img/imgCoffee01-1.png');" class="inside"></div>
         </div>
-
-        <div id="priceButtons" class="box-round">
-          <div class="btnWrap">
-            <button type="button" class="btn--cashes" value="1000" onclick="insertMoney(1000)">1,000원</button>
-            <button type="button" class="btn--cashes" value="500" onclick="insertMoney(500)">500원</button>
-            <button type="button" class="btn--cashes" value="100" onclick="insertMoney(100)">100원</button>
-            <button type="button" class="btn--cashes" value="0" onclick="insertMoney(-UserPrice.total)">초기화</button>
+        <div class="output">
+          <div id="buyList" class="box-round">
+            <div class="txt">내가 구매한 상품 리스트</div>
+            <div class="listWrap">
+              <ul>
+                <li class="infoList">
+                  <p>1</p>
+                  <p>아메리카노</p>
+                  <p>2023년 5월 1일 09:00</p>
+                </li>
+                <li class="infoList">
+                  <p>2</p>
+                  <p>카페라떼</p>
+                  <p>2023년 5월 2일 09:00</p>
+                </li>
+                <li class="infoList">
+                  <p>3</p>
+                  <p>카페모카</p>
+                  <p>2023년 5월 3일 09:00</p>
+                </li>
+                <li class="infoList">
+                  <p>4</p>
+                  <p>아이스티</p>
+                  <p>2023년 5월 5일 11:00</p>
+                </li>
+                <li class="infoList">
+                  <p>5</p>
+                  <p>말차라떼</p>
+                  <p>2023년 5월 8일 13:00</p>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
-
     </section>
 
     <!-- 자판기 하단 구매한 제품 리스트 노출영역 -->
-    <div class="output">
-      <div class="purchaseProduct box-round">
-        <!-- 구매한 제품 이미지 노출영역 -->
-        <div style="background-image: url('./src/img/imgCoffee01-1.png');" class="inside"></div>
-      </div>
-      <div id="buyList" class="box-round">
-        <div class="txt">내가 구매한 상품 리스트</div>
-        <div class="listWrap">
-          <ul>
-            <li class="infoList">
-              <p>1</p>
-              <p>아메리카노</p>
-              <p>2023년 5월 1일 09:00</p>
-            </li>
-            <li class="infoList">
-              <p>2</p>
-              <p>카페라떼</p>
-              <p>2023년 5월 2일 09:00</p>
-            </li>
-            <li class="infoList">
-              <p>3</p>
-              <p>카페모카</p>
-              <p>2023년 5월 3일 09:00</p>
-            </li>
-            <li class="infoList">
-              <p>4</p>
-              <p>아이스티</p>
-              <p>2023년 5월 5일 11:00</p>
-            </li>
-            <li class="infoList">
-              <p>5</p>
-              <p>말차라떼</p>
-              <p>2023년 5월 8일 13:00</p>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
 
   </div>
   <div class="copyright">2023 Mr.Breeze, inc.</div>

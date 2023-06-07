@@ -4,13 +4,13 @@ h1 {
 }
 
 .container {
-  width: 1200px;
+  width: 1080px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   margin: 2rem auto;
-  align-items: center;
+  padding: 2.4rem;
 }
 @media screen and (max-width: 47.5rem) {
   .container {
@@ -29,26 +29,22 @@ section {
   margin: 1rem 0;
 }
 
-/* 자판기 상단 제품 노출영역 */
-/* 자판기 상단 제품 노출영역 */
-/* 자판기 상단 제품 노출영역 */
 #header {
   display: flex;
   justify-content: center;
-  width: 100%;
-  height: 100%;
 }
 
 #header #productWrap {
   width: 100%;
-  height: 70rem;
+  height: 80rem;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px 12px;
   justify-items: stretch;
   padding: 3rem;
   border: 1rem solid #F78E1E;
   background-color: #fff;
+  overflow: auto;
 }
 @media screen and (max-width: 47.5rem) {
   #header #productWrap {
@@ -98,13 +94,7 @@ section {
 /* 자판기 구매 제품 가격버튼 노출영역 */
 /* 자판기 구매 제품 가격버튼 노출영역 */
 #priceButtons {
-  display: block;
-  position: relative;
-  width: 100%;
-  height: 100%;
-  padding: 3rem;
-  border: 1rem solid #F78E1E;
-  background-color: #fff;
+  margin: 2rem;
 }
 
 #priceButtons .currentCashed {
@@ -130,7 +120,6 @@ section {
 
 #priceButtons .btnWrap {
   display: flex;
-  flex-direction: column;
 }
 
 #priceButtons .btnWrap p {
@@ -155,18 +144,20 @@ section {
 /* 자판기 구매 제품 가격 & 안내 텍스트 노출영역 */
 
 
+#header .gap {
+  width: 2rem;
+}
+
 #header #calculateWrap {
   display: flex;
   flex-direction: column;
-  margin: 0 0 0 2rem;
   width: 100%;
-  height: 63rem;
 }
 
 #header #calculateWrap {
   display: flex;
   position: relative;
-  width: 100%;
+  width: 70%;
 }
 @media screen and (max-width: 47.5rem) {
   #header #calculateWrap {
@@ -183,7 +174,6 @@ section {
   height: 10rem;
   padding: 2rem;
   border: 1rem solid #F78E1E;
-  margin: 0 1.5rem 0 0;
   background-color: #fff;
 }
 
@@ -223,25 +213,8 @@ section {
   margin: 1rem 0;
 }
 
-/* 자판기 하단 구매한 제품 리스트 노출영역 */
-/* 자판기 하단 구매한 제품 리스트 노출영역 */
-/* 자판기 하단 구매한 제품 리스트 노출영역 */
-.output {
-  display: flex;
-  width: 100%;
-  margin: 1rem 0;
-}
 
-.output .purchaseProduct {
-  display: block;
-  width: 100%;
-  height: 30rem;
-  border: 1rem solid #F78E1E;
-  background-color: #fff;
-  margin: 0 2rem 0 0;
-}
-
-.output .inside {
+#calculateWrap .inside {
   background-repeat: no-repeat;
   background-size: contain;
   width: 100%;
@@ -250,7 +223,7 @@ section {
   transition: 1s;
 }
 
-.output .comeOut {
+#calculateWrap .comeOut {
   background-repeat: no-repeat;
   background-size: contain;
   width: 100%;
@@ -259,11 +232,29 @@ section {
   transition: 1s;
 }
 
+
+/* 자판기 하단 구매한 제품 리스트 노출영역 */
+/* 자판기 하단 구매한 제품 리스트 노출영역 */
+/* 자판기 하단 구매한 제품 리스트 노출영역 */
+.output {
+  display: block;
+  width: 100%;
+}
+
+.purchaseProduct {
+  display: block;
+  width: 100%;
+  height: 30rem;
+  border: 1rem solid #F78E1E;
+  background-color: #fff;
+  margin: 1rem 0 0 0;
+}
+
 .output #buyList {
   display: block;
   width: 100%;
-  height: 33rem;
   padding: 3rem;
+  margin: 1rem 0 0 0;
   border: 1rem solid #F78E1E;
   background-color: #fff;
 }
