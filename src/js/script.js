@@ -109,11 +109,13 @@ function choiceProductBtn(o, i) {
   UserPrice.inputCash(-products.data[i].price);  // inputCash 계산함수에 인자값으로 상단의 클릭한 상품가격이 마이너스값으로 들어감. 투입된 가격에 상품가격을 뺀 금액이 아래 함수들을 거치면서 금액(원)영역에 뿌려짐.
   validProduct();
   printTotalPrice();
+  outputProduct();
 };
 
 // 상품 출력.
 function outputProduct() {
-  
+  let purchaseProduct = document.querySelector('.purchaseProduct > div');
+  purchaseProduct.classList.replace("inside", "comeOut");
 }
 
 // 순차적으로 자동실행.
