@@ -1,48 +1,35 @@
 // 제품
-const products = [
-  { name: "Ice 아메리카노", price: 1500, url: "./src/img/imgCoffee01.png" },
-  { name: "Hot 아메리카노", price: 1500, url: "./src/img/imgCoffee02.png"  },
-  { name: "카페라떼", price: 2000, url: "./src/img/imgCoffee03.png"  },
-  { name: "카라멜 마끼아또", price: 2000, url: "./src/img/imgCoffee04.png"  },
-  { name: "카페모카", price: 2500, url: "./src/img/imgCoffee05.png"  },
-  { name: "아이스티", price: 3500, url: "./src/img/imgCoffee06.png"  },
-  { name: "말차라떼", price: 4000, url: "./src/img/imgCoffee07.png"  },
-  { name: "아포카토", price: 2200, url: "./src/img/imgCoffee08.png"  }
-];
-
-const products_sample = {
-  version: 3.1,
+const products = {
+  version: 1.1,
   data: [
-  { name: "Ice 아메리카노", price: 1500, url: "./src/img/imgCoffee01.png" },
-  { name: "Hot 아메리카노", price: 1500, url: "./src/img/imgCoffee02.png"  },
-  { name: "카페라떼", price: 2000, url: "./src/img/imgCoffee03.png"  },
-  { name: "카라멜 마끼아또", price: 2000, url: "./src/img/imgCoffee04.png"  },
-  { name: "카페모카", price: 2500, url: "./src/img/imgCoffee05.png"  },
-  { name: "아이스티", price: 3500, url: "./src/img/imgCoffee06.png"  },
-  { name: "말차라떼", price: 4000, url: "./src/img/imgCoffee07.png"  },
-  { name: "아포카토", price: 2200, url: "./src/img/imgCoffee08.png"  }
-]};
+    { name: "Ice 아메리카노", price: 1500, url: "./src/img/imgCoffee01.png" },
+    { name: "Hot 아메리카노", price: 1500, url: "./src/img/imgCoffee02.png"  },
+    { name: "카페라떼", price: 2000, url: "./src/img/imgCoffee03.png"  },
+    { name: "카라멜 마끼아또", price: 2000, url: "./src/img/imgCoffee04.png"  },
+    { name: "카페모카", price: 2500, url: "./src/img/imgCoffee05.png"  },
+    { name: "아이스티", price: 3500, url: "./src/img/imgCoffee06.png"  },
+    { name: "말차라떼", price: 4000, url: "./src/img/imgCoffee07.png"  },
+    { name: "아포카토", price: 2200, url: "./src/img/imgCoffee08.png"  }
+  ]};
 
 // 안내 메세지
-const infoMsgs = [
-  { massage: "금액을 투입해 주세요."},
-  { massage: "금액을 더 넣어주세요."},
-  { massage: "거스름돈은 0원입니다."},
-  { massage: "제품을 수령해주세요."}
-];
+// const infoMsgs = [
+//   { massage: "금액을 투입해 주세요."},
+//   { massage: "금액을 더 넣어주세요."},
+//   { massage: "거스름돈은 0원입니다."},
+//   { massage: "제품을 수령해주세요."}
+// ];
 
 const CashType = [
   50000, 10000, 5000, 1000, 500, 100
 ];
 
 // 아래 함수들의 연산작업들(투입금액 - 상품금액)이 UserPrice.total에 적용됨.
+// 
 const UserPrice = {
   total: 0,
   inputCash: function(price) {  // 투입금액 연산 함수.
     this.total += price;
-  },
-  clear: function() {
-
   }
 };
 
@@ -53,8 +40,8 @@ function printProduct() {
   // [반복문] 상품 뿌려줌
   productWrap.innerHTML = ""; // 상품 영역 초기화
 
-  for (let i = 0; i < products.length; i++) {
-    let product = products[i];
+  for (let i = 0; i < products.data.length; i++) {
+    let product = products.data[i];
     console.log("제품명 : ", product.name);
     console.log("제품가격 : ", product.price);
     console.log("제품이미지 : ", product.url);
@@ -72,7 +59,7 @@ function printProduct() {
 function validProduct() { // [반복문] 뿌려진 상품들과 투입금액을 비교해서 투입금액보다 금액이 낮은 상품들 활성화시키는 함수.
   let list = productWrap.querySelectorAll(".product");  // 뿌려진 상품들 list변수에 담기.
   for (let i = 0; i < list.length; i++) { // 상품들 반복문으로 loop 돌려서
-    if (products[i].price > UserPrice.total) {  // 상단 UserPrice객체의 total금액(투입금액)보다 product[i].price(상품가격)이 크다면
+    if (products.data[i].price > UserPrice.total) {  // 상단 UserPrice객체의 total금액(투입금액)보다 product[i].price(상품가격)이 크다면
       list[i].classList.add("disabledButton");  // 상품들을 노출시키지 않음.
     } else {
       list[i].classList.remove("disabledButton"); // 상품가격보다 투입한 금액이 크다면 해당 상품들을 노출시킴.
@@ -80,13 +67,13 @@ function validProduct() { // [반복문] 뿌려진 상품들과 투입금액을 
   }
 };
 
-function printStatusMsg() { // [반복문] 상태메세지 뿌려줌
-  statusMsg.innerHTML = "";  // 메세지 영역
-  for (let i = 0; i < infoMsgs.length; i++) {
-    statusMsg.innerHTML +=
-    `<p class="disabledButton">` + infoMsgs[i].massage + `</p>`
-  };
-};
+// function printStatusMsg() { // [반복문] 상태메세지 뿌려줌
+//   statusMsg.innerHTML = "";  // 메세지 영역
+//   for (let i = 0; i < infoMsgs.length; i++) {
+//     statusMsg.innerHTML +=
+//     `<p class="disabledButton">` + infoMsgs[i].massage + `</p>`
+//   };
+// };
 
 function selectStatusMsg(x) { // [반복문] 상태메세지 p태그에 on클래스를 추가, 삭제하는 함수.
   let list = statusMsg.querySelectorAll("p"); // 상태메세지의 p태그 내용들 list변수에 담기.
@@ -125,9 +112,9 @@ function calcMoney(element) {
 
 // 상품 클릭 Event. 
 function choiceProductBtn(o, i) {
-  console.log("products[i].price : ", products[i].price); // 클릭한 상품의 가격
+  console.log("products[i].price : ", products.data[i].price); // 클릭한 상품의 가격
   console.log("o : ", o); // 클릭한 상품 <div ...
-  UserPrice.inputCash(-products[i].price);  // inputCash 계산함수에 인자값으로 상단의 클릭한 상품가격이 마이너스값으로 들어감. 투입된 가격에 상품가격을 뺀 금액이 아래 함수들을 거치면서 금액(원)영역에 뿌려짐.
+  UserPrice.inputCash(-products.data[i].price);  // inputCash 계산함수에 인자값으로 상단의 클릭한 상품가격이 마이너스값으로 들어감. 투입된 가격에 상품가격을 뺀 금액이 아래 함수들을 거치면서 금액(원)영역에 뿌려짐.
   validProduct();
   printTotalPrice();
 };
@@ -135,5 +122,5 @@ function choiceProductBtn(o, i) {
 // 순차적으로 자동실행.
 window.onload = function () {
   printProduct();
-  printStatusMsg();
+  // printStatusMsg();
 };
