@@ -108,11 +108,11 @@ function choiceProductBtn(o, i) {
 // 상품 출력
 function outputProduct(i) {
   let purchaseProduct = document.querySelector('.purchaseProduct');
-  purchaseProduct.innerHTML = `
-  <div style="background-image: url('` + products.data[i].url2 + `');" class="inside"></div>
-  `
+  purchaseProduct.innerHTML = `<div style="background-image: url('` + products.data[i].url2 + `');" class="inside"></div>`
   let purchaseProductIn = document.querySelector('.purchaseProduct > div');
-  purchaseProductIn.classList.replace("inside", "comeOut");
+  setTimeout ( ()=>{
+    purchaseProductIn.classList.replace("inside", "comeOut");
+  }, 300);
   console.log(purchaseProductIn);
 }
 
