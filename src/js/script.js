@@ -12,10 +12,6 @@ const products = {
     { name: "아포카토", price: 2200, url: "./src/img/imgCoffee08.png",url2: "./src/img/imgCoffee08-1.png"  }
   ]};
 
-const CashType = [
-  50000, 10000, 5000, 1000, 500, 100
-];
-
 // 아래 함수들의 연산작업들(투입금액 - 상품금액)이 UserPrice.total에 적용됨.
 // 
 const UserPrice = {
@@ -112,7 +108,7 @@ function outputProduct(i) {
   let purchaseProductIn = document.querySelector('.purchaseProduct > div');
   setTimeout ( ()=>{
     purchaseProductIn.classList.replace("inside", "comeOut");
-  }, 300);
+  }, 500);
   console.log(purchaseProductIn);
 }
 
