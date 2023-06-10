@@ -187,14 +187,25 @@ section {
   margin: 1rem 0;
 }
 
-
+.purchaseProduct>div {
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+  background-position: center -300px;
+}
+.purchaseProduct>div.show {
+  background-position: center 0px;
+  transition: all 1s;
+}
+/*
 #calculateWrap .inside {
   background-repeat: no-repeat;
   background-size: contain;
   width: 100%;
   height: 100%;
   background-position: center -300px;
-  transition: 1s;
+  transition: all 1s;
 }
 
 #calculateWrap .comeOut {
@@ -203,8 +214,9 @@ section {
   width: 100%;
   height: 100%;
   background-position: center 0px;
-  transition: 1s;
+  transition: all 1s;
 }
+*/
 
 
 /* 자판기 하단 구매한 제품 리스트 노출영역 */

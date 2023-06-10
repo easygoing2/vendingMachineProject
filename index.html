@@ -21,7 +21,7 @@
         <button type="button" class="btn--cashes" value="1000" onclick="insertMoney(1000)">1,000원</button>
         <button type="button" class="btn--cashes" value="500" onclick="insertMoney(500)">500원</button>
         <button type="button" class="btn--cashes" value="100" onclick="insertMoney(100)">100원</button>
-        <button type="button" class="btn--cashes" value="0" onclick="insertMoney(-UserPrice.total)">초기화</button>
+        <button type="button" class="btn--cashes" value="0" onclick="resetAll();">반환</button>
       </div>
     </div>
 
@@ -35,16 +35,12 @@
           <p>금액(원) : <span id="productInsertPrice"></span>원</p>
         </div>
 
-        <div class="purchaseProduct box-round">
-          <!-- 구매한 제품 이미지 노출영역 -->
-          <!-- <div style="background-image: url('./src/img/imgCoffee01-1.png');" class="inside"></div> -->
-        </div>
         <div class="output">
           <div id="buyList" class="box-round">
             <div class="txt">내가 구매한 상품 리스트</div>
             <div class="listWrap">
               <ul>
-                <li class="infoList">
+                <!-- <li class="infoList">
                   <p>1</p>
                   <p>아메리카노</p>
                   <p>2023년 5월 1일 09:00</p>
@@ -68,10 +64,14 @@
                   <p>5</p>
                   <p>말차라떼</p>
                   <p>2023년 5월 8일 13:00</p>
-                </li>
+                </li> -->
               </ul>
             </div>
           </div>
+        </div>
+        <div class="purchaseProduct box-round">
+          <!-- 구매한 제품 이미지 노출영역 -->
+          <div></div>
         </div>
       </div>
     </section>

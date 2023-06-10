@@ -13,7 +13,6 @@ const products = {
   ]};
 
 // 아래 함수들의 연산작업들(투입금액 - 상품금액)이 UserPrice.total에 적용됨.
-// 
 const UserPrice = {
   total: 0,
   inputCash: function(price) {  // 투입금액 연산 함수.
@@ -21,8 +20,32 @@ const UserPrice = {
   }
 };
 
-// 투입금액 영역 
-var sum = 0;
+var currentIndex = 0;
+
+// // 구매 시점 날짜 노출 YYYY-MM-DD ********************************************TODO
+// const BuyDate = { // 2000-01-02 12:34:56
+//   date: "YYYY-MM-DD",
+//   today: new Date(),
+//   year: new Date().getFullYear(),
+//   month: ('0' + (new Date().getMonth() + 1)).slice(-2),
+//   day: ('0' + new Date().getDate()).slice(-2),
+//   sec: ('0' + new Date().getSeconds()).slice(-2),
+//   inputDate: function(year, month, day, sec) {
+//     this.date = year + '-' + month + '-' + day + ' ' + sec;
+//   },
+//   inputDates: function() {
+//     this.date = this.year + '-' + this.month + '-' + this.day + ' ' + this.sec;
+//   }
+// }
+// BuyDate.inputDate(BuyDate.year, BuyDate.month, BuyDate.day, BuyDate.sec);
+// console.log(BuyDate.date);
+
+function getDateTime() {
+  let today = new Date();
+  return today.getFullYear() + "-" +
+  ('0' + (today.getMonth() + 1)).slice(-2) + "-" +
+  ('0' + today.getDate()).slice(-2);
+}
 
 function printProduct() {
   // [반복문] 상품 뿌려줌
@@ -55,17 +78,6 @@ function validProduct() { // [반복문] 뿌려진 상품들과 투입금액을 
   }
 };
 
-function selectStatusMsg(x) { // [반복문] 상태메세지 p태그에 on클래스를 추가, 삭제하는 함수.
-  let list = statusMsg.querySelectorAll("p"); // 상태메세지의 p태그 내용들 list변수에 담기.
-  for (let i = 0; i < list.length; i++) { // 상태메세지들 loop 돌려서
-    if (i == x) { // 만약 리스트의 index와 selectStatusMsg(x)인자값으로 들어온 x값이 일치하면
-      list[i].classList.add("on");  // list의 해당 인덱스에 on클래스를 추가함.
-    } else {
-      list[i].classList.remove("on"); // 그렇지 않다면 list의 on클래스 삭제함.
-    }
-  }
-}
-
 function printTotalPrice() {  // 투입금액 & 계산금액을 productInsertPrice영역에 innerHTML해주는 함수.
   console.log("UserPrice(사용자금액) : ", UserPrice);
   productInsertPrice.innerHTML = UserPrice.total.toLocaleString(); // 금액(원)영역에 텍스트로 뿌려줌
@@ -84,12 +96,6 @@ function insertMoney(value) {
   }
 };
 
-// 투입금액 더하기 연산 함수
-function calcMoney(element) {
-  //parseInt를 안하면 값이 더하기가 안되고 옆에 붙여넣기가 됨
-  sum+= parseInt(element.value);
-};
-
 // 상품 클릭 Event
 function choiceProductBtn(o, i) {
   console.log("클릭한 상품의 가격 products[i].price : ", products.data[i].price); // 클릭한 상품의 가격
@@ -103,13 +109,39 @@ function choiceProductBtn(o, i) {
 
 // 상품 출력
 function outputProduct(i) {
-  let purchaseProduct = document.querySelector('.purchaseProduct');
-  purchaseProduct.innerHTML = `<div style="background-image: url('` + products.data[i].url2 + `');" class="inside"></div>`
   let purchaseProductIn = document.querySelector('.purchaseProduct > div');
-  setTimeout ( ()=>{
-    purchaseProductIn.classList.replace("inside", "comeOut");
-  }, 500);
-  console.log(purchaseProductIn);
+  purchaseProductIn.classList.remove("show");
+  setTimeout(()=>{
+    purchaseProductIn.style.backgroundImage = "url('" + products.data[i].url2 + "')";
+    purchaseProductIn.classList.add("show");
+    setTimeout(()=>{
+    //  listUpBoard(i); // 보드에 리스트업.
+    }, 1000);
+    listUpBoard(i); // 보드에 리스트업.
+  });
+}
+
+// 리스트영역에 구매한 내역 노출 함수.
+function listUpBoard(i) {
+  let buyLists = buyList.querySelector(".listWrap > ul");
+  console.log("buyLists : ", buyLists); // <li></li>
+  console.log("i : ", products.data[i]); // 해당 [i]인덱스의 정보
+  buyLists.innerHTML += 
+  `<li class="infoList">
+    <p>` + ++currentIndex + `</p>
+    <p>` + products.data[i].name + `</p>
+    <p>` + getDateTime() + `
+  </li>
+  ` 
+};
+
+// 초기화 기능. (상품방출, 금액방출, 리스트리셋)
+function resetAll() {
+  document.querySelector('.purchaseProduct>div').classList.remove("show");
+  insertMoney(-UserPrice.total); // 금액방출
+  let buyLists = buyList.querySelector(".listWrap > ul");
+  buyLists.innerHTML = ``; 
+  currentIndex = 0;
 }
 
 // 순차적으로 자동실행
